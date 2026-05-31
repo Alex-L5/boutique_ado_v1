@@ -26,11 +26,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">  <!-- products will stack on mobile and be side-by-side on small and medium screens -->
                             <div class="card h-100 border-0">  <!-- bootstrap card --> <!-- products will split into four columns on large and three columns on extra-large -->
                                 {% if product.image %}  <!-- bootstrap documentation -->  <!-- the card is divided into a top, which contains our product image -->
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">  <!-- add the link to the product details page -->
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">  <!-- to each product image in the products template -->
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
