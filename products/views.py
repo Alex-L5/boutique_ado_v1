@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.db.models import Q  # if the query isn't blank a special object from Jango.db.models
-from .models import Product  # called Q is used to generate a search query
+from django.db.models import Q  # if the query isn't blank a special object from Jango.db.models called Q is used to generate a search query
+from .models import Product, Category  
 
 # Create your views here.
 
@@ -10,8 +10,15 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None  # starting the query as none at the top of this view to ensure we don't get an error when loading the products page without a search term
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)  # double underscore syntax is common when making queries in django
+            categories = Category.objects.filter(name__in=categories)  # looking for the name field of the category model as category and product are related with a foreign key          
+
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -23,7 +30,8 @@ def all_products(request):
 
     context = {
         'products': products,
-        'search_term': query,  # in the template  
+        'search_term': query,  # in the template
+        'current_categories': categories,  # list of strings of category names passed through the URL converted into a list of actual category objects, so that we can access all their fields in the template 
     }
     
     return render(request, 'products/products.html', context)
