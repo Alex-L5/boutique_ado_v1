@@ -5,9 +5,9 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>  <!-- a direction of ascending order -->
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>  <!-- a direction of descending as shoppers are more likely to want to sort by highest to lowest rating by default -->
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>  <!-- link to the products page -->
             </div>
         </li>  <!-- the list allows the user to either see all products at once or sort them by price rating or category -->
@@ -43,7 +43,7 @@
                 <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
                 <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
                 <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
-            </div>
+            </div>  <!-- the programmatic and friendly names in this model are nice since we can use the programmatic name in the URLs here and we'll be able to render the friendly name in our templates -->
         </li>
     </ul>
 </div>  

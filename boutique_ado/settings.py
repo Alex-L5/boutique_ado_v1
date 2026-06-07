@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get(
 )
  
 # DEBUG is True locally if DEVELOPMENT is set in the env, False on Heroku.
-DEBUG = 'True' in os.environ
+DEBUG = 'False' in os.environ
  
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
  
