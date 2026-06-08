@@ -5,7 +5,7 @@ html {
 body {
     background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover;
-     height: calc(100vh - 164px);
+    height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
 }
@@ -68,6 +68,11 @@ body {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+/* inverts the colours of the badges when hovering over them */
+a.category-badge > span.badge:hover {
+    background: #212529 !important;  /* makes the badges look similar to a bootstrap button with the dark class on them */
+    color: #fff !important;
 }
 
 /* -------------------------------- Media Queries */

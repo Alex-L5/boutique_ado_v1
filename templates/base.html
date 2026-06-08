@@ -47,6 +47,7 @@
             </div>                                                      
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">  <!-- search form -->
+                    {% csrf_token %} 
                     <div class="input-group w-100">  <!-- with text input named q for query -->
                         <input class="form-control border border-black rounded-0" type="text" name="q"   
                             placeholder="Search our site">
@@ -102,7 +103,7 @@
         </div>    
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" 
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

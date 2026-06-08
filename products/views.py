@@ -21,7 +21,9 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))  # we need to first annotate all the products with a new field in order to allow case-insensitive sorting on the field, eg name field
-            
+            if sortkey == 'category':
+                sortkey = 'category__name'  # changing this line to the products dot order by category double underscore name as shown below
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -48,7 +50,7 @@ def all_products(request):
         'products': products,
         'search_term': query,  # in the template
         'current_categories': categories,  # list of strings of category names passed through the URL converted into a list of actual category objects, so that we can access all their fields in the template 
-        'current_sorting': current_sorting,
+        'current_sorting': current_sorting,  # used if the user has multiple categories selected
     }
     
     return render(request, 'products/products.html', context)
