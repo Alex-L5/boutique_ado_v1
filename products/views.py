@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q  # if the query isn't blank a special object from Jango.db.models called Q is used to generate a search query
+from django.db.models.functions import Lower
+
 from .models import Product, Category  
 
 # Create your views here.

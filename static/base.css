@@ -74,6 +74,17 @@ a.category-badge > span.badge:hover {
     background: #212529 !important;  /* makes the badges look similar to a bootstrap button with the dark class on them */
     color: #fff !important;
 }
+/* sets a static width height and position in the bottom right of the screen and makes the cursor into a pointer */
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.btt-link {
+    cursor: pointer;
+}
 
 /* -------------------------------- Media Queries */
 
