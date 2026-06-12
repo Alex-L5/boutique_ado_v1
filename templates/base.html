@@ -84,8 +84,8 @@
                             {% endif %}                                                
                         </div>
                     </li>  
-                    <li class="list-inline-item">  <!-- bootstrap list classes, used to align the lists horizontally with no bullets -->
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                    <li class="list-inline-item">  <!-- bootstrap list classes, used to align the lists horizontally with no bullets -->  
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">  <!-- link to view the bag from the boutique_ado project level URLs file -->
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>  <!-- Django template logic - if there's something in the bag, the font will be bold and a different colour -->
                                 <p class="my-0">
