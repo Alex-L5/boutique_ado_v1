@@ -26,12 +26,12 @@
                     <div class="table-responsive rounded"></div>  <!-- if there are items in the bag, this table is rendered -->
                 {% else %}
                     <p class="lead mb-5">Your bag is empty.</p>  <!-- paragraph that says your bag is empty and give users a link back to the products page -->
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">  
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
-                    </a>
+                    </a>  <!-- link back to the products page -->
                 {% endif %}
             </div>
         </div>

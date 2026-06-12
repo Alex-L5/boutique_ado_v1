@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get(
 )
  
 # DEBUG is True locally if DEVELOPMENT is set in the env, False on Heroku.
-DEBUG = 'True' in os.environ
+DEBUG = 'False' in os.environ
  
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
  
@@ -83,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },
@@ -170,6 +171,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic target
  
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
  
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
